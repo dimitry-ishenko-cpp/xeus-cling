@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: xeus-cling
+Source: https://github.com/jupyter-xeus/xeus-cling
+
+Files: *
+Copyright: 2017-2021 by the Xeus-cling Authors
+License: BSD
+
+Files: debian/*
+Copyright: 2021 Dimitry Ishenko <dimitry.ishenko@gmail.com>
+License: GPL-2+

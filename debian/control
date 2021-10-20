@@ -1,0 +1,28 @@
+Source: xeus-cling
+Section: devel
+Priority: optional
+Maintainer: Dimitry Ishenko <dimitry.ishenko@gmail.com>
+Build-Depends: clang-9 (>> 2:9~),
+ debhelper-compat (= 13),
+ libcling-dev (>= 0.6),
+ libclang-9-dev (>> 2:9~),
+ libcxxopts-dev,
+ libpugixml-dev,
+ llvm-9-dev (>> 2:9~),
+ pkgconf,
+ xeus-dev (>= 1.0.0),
+ xtl-dev (>= 0.7.0)
+Standards-Version: 4.5.1
+Homepage: https://github.com/jupyter-xeus/xeus-cling
+Rules-Requires-Root: no
+
+Package: xeus-cling
+Architecture: any
+Depends: cling-common (>= 0.6),
+ libclang-cpp9 (>> 2:9~),
+ libllvm9 (>> 2:9~),
+ nlohmann-json3-dev,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: Jupyter kernel for the C++
+ xeus-cling is a Jupyter kernel for C++ based on the C++ interpreter cling and
+ the native implementation of the Jupyter protocol xeus.
