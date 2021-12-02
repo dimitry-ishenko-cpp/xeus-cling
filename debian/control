@@ -3,7 +3,8 @@ Section: devel
 Priority: optional
 Maintainer: Dimitry Ishenko <dimitry.ishenko@gmail.com>
 Build-Depends: clang-9 (>> 2:9~),
- debhelper-compat (= 13),
+ cmake (>= 3.4.3),
+ debhelper-compat (= 12),
  libcling-dev (>= 0.6),
  libclang-9-dev (>> 2:9~),
  libcxxopts-dev,
