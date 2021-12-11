@@ -5,11 +5,13 @@ Maintainer: Dimitry Ishenko <dimitry.ishenko@gmail.com>
 Build-Depends: clang-9 (>> 2:9~),
  cmake (>= 3.4.3),
  debhelper-compat (= 12),
+ googletest <!nocheck>,
  libcling-dev (>= 0.6),
  libclang-9-dev (>> 2:9~),
  libcxxopts-dev,
  libpugixml-dev,
  llvm-9-dev (>> 2:9~),
+ nlohmann-json3-dev,
  pkgconf,
  xeus-dev (>= 1.0.0),
  xtl-dev (>= 0.7.0)
