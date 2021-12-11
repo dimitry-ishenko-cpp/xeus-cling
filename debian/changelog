@@ -1,3 +1,11 @@
+xeus-cling (0.12.1-0ppa2) unstable; urgency=medium
+
+  * Add patches
+  * Update README.md
+  * Depend on cmake, set focal compat level (= 12)
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Sat, 11 Dec 2021 17:15:40 -0500
+
 xeus-cling (0.12.1-0) unstable; urgency=medium
 
   * Initial release
