@@ -1,0 +1,62 @@
+From 6e28d1ab6087e31b98aa7ce139d2f5fe9062da01 Mon Sep 17 00:00:00 2001
+From: Dimitry Ishenko <dimitry.ishenko@gmail.com>
+Date: Wed, 20 Oct 2021 12:41:58 -0400
+Subject: [PATCH 3/9] Fix compilation
+
+---
+ src/xmagics/executable.cpp | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
+
+diff --git a/src/xmagics/executable.cpp b/src/xmagics/executable.cpp
+index d63a024..db358f4 100644
+--- a/src/xmagics/executable.cpp
++++ b/src/xmagics/executable.cpp
+@@ -131,7 +131,7 @@ namespace xcpp
+ 
+         // Generate relocations suitable for dynamic linking.
+         auto CodeGenOpts = CI->getCodeGenOpts();
+-        CodeGenOpts.RelocationModel = "pic";
++        CodeGenOpts.RelocationModel = llvm::Reloc::PIC_;
+ 
+         // Enable debug information if requested.
+         if (EnableDebugInfo)
+@@ -187,16 +187,15 @@ namespace xcpp
+         llvm::sys::path::append(Compiler, "bin", "clang++");
+ 
+         // Construct arguments to linker command.
+-        llvm::SmallVector<const char*, 16> Args;
+-        Args.push_back(Compiler.c_str());
+-        Args.push_back(ObjectFile.c_str());
++        llvm::SmallVector<llvm::StringRef, 16> Args;
++        Args.push_back(Compiler);
++        Args.push_back(ObjectFile);
+         for (auto& O : LinkerOptions)
+         {
+-            Args.push_back(O.c_str());
++            Args.push_back(O);
+         }
+         Args.push_back("-o");
+-        Args.push_back(ExeFile.c_str());
+-        Args.push_back(NULL);
++        Args.push_back(ExeFile);
+ 
+         // Redirect output and error streams from linker.
+         llvm::SmallString<64> OutputFile, ErrorFile;
+@@ -207,11 +206,11 @@ namespace xcpp
+ 
+         llvm::StringRef OutputFileStr(OutputFile);
+         llvm::StringRef ErrorFileStr(ErrorFile);
+-        const llvm::StringRef* Redirects[] = {nullptr, &OutputFileStr,
+-                                              &ErrorFileStr};
++        const llvm::Optional<llvm::StringRef> Redirects[] = {llvm::None, OutputFileStr,
++                                                             ErrorFileStr};
+ 
+         // Finally run the linker.
+-        int ret = llvm::sys::ExecuteAndWait(Compiler, Args.data(), nullptr,
++        int ret = llvm::sys::ExecuteAndWait(Compiler, Args, llvm::None,
+                                             Redirects);
+ 
+         // Read back output and error streams.
+-- 
+2.32.0
+

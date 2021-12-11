@@ -1,0 +1,25 @@
+From 2c13d999fd17a3c67aa3e6c97893fa48d6032bc5 Mon Sep 17 00:00:00 2001
+From: Dimitry Ishenko <dimitry.ishenko@gmail.com>
+Date: Wed, 20 Oct 2021 12:40:41 -0400
+Subject: [PATCH 1/9] Use llvm-config-9
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 87d1f44..d71b8f7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,7 +51,7 @@ configure_file (
+ #######################
+ 
+ set(CONFIG_OUTPUT)
+-find_program(LLVM_CONFIG "llvm-config")
++find_program(LLVM_CONFIG "llvm-config-9")
+ if(LLVM_CONFIG)
+     message(STATUS "Found LLVM_CONFIG as ${LLVM_CONFIG}")
+     set(CONFIG_COMMAND ${LLVM_CONFIG}
+-- 
+2.32.0
+
