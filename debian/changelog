@@ -1,3 +1,10 @@
+xeus-cling (0.12.1-0ppa3) unstable; urgency=medium
+
+  * Build tests
+  * Tweak description
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Sat, 11 Dec 2021 17:33:12 -0500
+
 xeus-cling (0.12.1-0ppa2) unstable; urgency=medium
 
   * Add patches
