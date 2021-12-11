@@ -24,6 +24,7 @@ Depends: cling-common (>= 0.6),
  libllvm9 (>> 2:9~),
  nlohmann-json3-dev,
  ${shlibs:Depends}, ${misc:Depends}
-Description: Jupyter kernel for the C++
- xeus-cling is a Jupyter kernel for C++ based on the C++ interpreter cling and
- the native implementation of the Jupyter protocol xeus.
+Recommends: xwidgets
+Description: Jupyter kernel for C++
+ xeus-cling is a Jupyter kernel for C++ based on the cling C++ interpreter and
+ the native implementation of the xeus Jupyter protocol.
