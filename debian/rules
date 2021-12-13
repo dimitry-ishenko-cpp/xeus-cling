@@ -4,9 +4,16 @@
 	dh $@
 
 ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+
 override_dh_auto_configure:
-	dh_auto_configure -- -DGTEST_SRC_DIR=/usr/src/googletest
+	dh_auto_configure -- -DDISABLE_ARCH_NATIVE=ON -DGTEST_SRC_DIR=/usr/src/googletest
 
 override_dh_auto_test:
 	dh_auto_test -- xtest
+
+else
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DDISABLE_ARCH_NATIVE=ON
+
 endif
