@@ -1,3 +1,9 @@
+xeus-cling (0.12.1-0ppa4) unstable; urgency=medium
+
+  * Disable -march=native
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Mon, 13 Dec 2021 12:32:38 -0500
+
 xeus-cling (0.12.1-0ppa3) unstable; urgency=medium
 
   * Build tests
