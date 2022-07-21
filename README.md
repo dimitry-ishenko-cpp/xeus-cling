@@ -14,7 +14,7 @@ from either
 Building instructions:
 
 ```bash
-p=xeus-cling b=debian # or focal or impish
+p=xeus-cling b=debian # or another branch
 
 # clone this repo
 git clone -b ${b} https://salsa.debian.org/dimitry-ishenko/${p}.git
