@@ -1,17 +1,12 @@
 # Debian Packaging for xeus-cling
 
-This is Debian packaging for the
-[xeus-cling](https://github.com/jupyter-xeus/xeus-cling) repository with
-additional patches that allow it to be built against patched external
-[LLVM/Clang](https://salsa.debian.org/dimitry-ishenko/llvm-toolchain-9) and
-[Cling](https://salsa.debian.org/dimitry-ishenko/cling) libraries.
+This is Debian packaging repository for 
+[xeus-cling](https://github.com/jupyter-xeus/xeus-cling).
 
-xeus-cling along with other supporting packages can be conveniently installed
-from either
-[ppa:ppa-verse/cling](https://launchpad.net/~ppa-verse/+archive/ubuntu/cling) or
-[ppa:ppa-verse/xeus](https://launchpad.net/~ppa-verse/+archive/ubuntu/xeus).
+Precompiled Debian package for xeus-cling can be installed from
+[ppa:ppa-verse/xeus-cling](https://launchpad.net/~ppa-verse/+archive/ubuntu/xeus-cling).
 
-Building instructions:
+Or you can build it yourself:
 
 ```bash
 p=xeus-cling b=debian # or another branch
@@ -22,11 +17,13 @@ r=$(cd ${p} && git log -n1 --oneline --no-decorate `git describe --tags --abbrev
 v=${r%-*}
 v=${v#*:}
 
-# download upstream tarball
-wget https://github.com/jupyter-xeus/xeus-cling/archive/refs/tags/${v}.tar.gz \
-    -O ${p}_${v}.orig.tar.gz
+# download and unpack upstream tarball
+f=${p}_${v}.orig.tar.gz
+wget https://github.com/jupyter-xeus/xeus-cling/archive/refs/tags/${v}.tar.gz -O ${f}
 
-# build source package
+tar -C ${p} --strip-components=1 -xzf ${f}
+
+# create source package
 dpkg-source -b ${p}
 
 # build .deb package locally...
