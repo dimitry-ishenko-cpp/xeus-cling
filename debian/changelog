@@ -1,4 +1,4 @@
-xeus-cling (0.13.0-0ppa3) unstable; urgency=medium
+xeus-cling (0.13.0-0ppa3~ubuntu22.04) jammy; urgency=medium
 
   * control: compat level 13
   * rules: export variables
