@@ -1,0 +1,3 @@
+usr/include/
+usr/lib/${DEB_HOST_MULTIARCH}/libxeus-cling.so
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/
