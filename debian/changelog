@@ -1,4 +1,4 @@
-xeus-cling (0.13.0-0ppa4) unstable; urgency=medium
+xeus-cling (0.13.0-0ppa4~ubuntu22.04) jammy; urgency=medium
 
   * Add 0005-Don-t-install-into-usr-etc.patch
   * Set build type to Release
