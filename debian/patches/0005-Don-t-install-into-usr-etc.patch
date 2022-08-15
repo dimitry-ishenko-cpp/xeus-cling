@@ -1,0 +1,64 @@
+From 1ed0c8f24b052a5b4720d3b4bad60658e482f5c4 Mon Sep 17 00:00:00 2001
+From: Dimitry Ishenko <dimitry.ishenko@gmail.com>
+Date: Sun, 14 Aug 2022 18:08:49 -0400
+Subject: [PATCH] Don't install into /usr/etc
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+According to §4.9.3 of the Filesystem Hierarchy Standard:
+
+"Note that /usr/etc is still not allowed: programs in /usr should place
+configuration files in /etc."
+---
+ CMakeLists.txt   | 9 +++++++--
+ src/xinspect.hpp | 6 ++----
+ 2 files changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 87d1f44..331831a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -400,8 +400,13 @@ install(DIRECTORY ${XCPP_TAGCONFS_DIR}
+         DESTINATION ${XEUS_CLING_CONF_DIR})
+ 
+ # Add definitions for the kernel to find tagfiles.
+-add_definitions(-DXCPP_TAGFILES_DIR="${XEUS_CLING_DATA_DIR}/tagfiles")
+-add_definitions(-DXCPP_TAGCONFS_DIR="${XEUS_CLING_CONF_DIR}/tags.d")
++add_definitions(-DXCPP_TAGFILES_DIR="${CMAKE_INSTALL_PREFIX}/${XEUS_CLING_DATA_DIR}/tagfiles")
++if(CMAKE_INSTALL_PREFIX STREQUAL "/usr")
++    # install into /etc instead of /usr/etc
++    add_definitions(-DXCPP_TAGCONFS_DIR="/${XEUS_CLING_CONF_DIR}/tags.d")
++else()
++    add_definitions(-DXCPP_TAGCONFS_DIR="${CMAKE_INSTALL_PREFIX}/${XEUS_CLING_CONF_DIR}/tags.d")
++endif()
+ 
+ # Makes the project importable from the build directory
+ export(EXPORT ${PROJECT_NAME}-targets
+diff --git a/src/xinspect.hpp b/src/xinspect.hpp
+index f907bf4..671b095 100644
+--- a/src/xinspect.hpp
++++ b/src/xinspect.hpp
+@@ -21,8 +21,6 @@
+ 
+ #include "pugixml.hpp"
+ 
+-#include "xtl/xsystem.hpp"
+-
+ #include "xeus-cling/xbuffer.hpp"
+ #include "xeus-cling/xpreamble.hpp"
+ 
+@@ -171,8 +169,8 @@ namespace xcpp
+ 
+     void inspect(const std::string& code, nl::json& kernel_res, cling::Interpreter& interpreter)
+     {
+-        std::string tagconf_dir = xtl::prefix_path() + XCPP_TAGCONFS_DIR;
+-        std::string tagfiles_dir = xtl::prefix_path() + XCPP_TAGFILES_DIR;
++        std::string tagconf_dir = XCPP_TAGCONFS_DIR;
++        std::string tagfiles_dir = XCPP_TAGFILES_DIR;
+ 
+         nl::json tagconfs = read_tagconfs(tagconf_dir.c_str());
+ 
+-- 
+2.34.1
+

@@ -2,3 +2,4 @@
 0002-Strip-out-cppzmq.patch
 0003-Fix-compilation.patch
 0004-Don-t-set-RPATH.patch
+0005-Don-t-install-into-usr-etc.patch

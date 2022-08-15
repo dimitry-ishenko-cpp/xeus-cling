@@ -1,4 +1,3 @@
 usr/bin/xcpp
-usr/etc/xeus-cling/ etc/
+usr/include/xcpp/
 usr/share/jupyter/
-usr/share/xeus-cling/

@@ -47,8 +47,7 @@ Description: Jupyter kernel for C++
  xeus-cling is a Jupyter kernel for C++ based on the cling C++ interpreter and
  the native implementation of the xeus Jupyter protocol.
  .
- This package contains the xcpp executable and Jupyter kernel configuration
- files.
+ This package contains the xcpp binary and Jupyter kernel configuration files.
 
 Package: xeus-cling-dev
 Architecture: any
@@ -62,4 +61,4 @@ Description: Jupyter kernel for C++
  xeus-cling is a Jupyter kernel for C++ based on the cling C++ interpreter and
  the native implementation of the xeus Jupyter protocol.
  .
- This package contains development files.
+ This package contains the development files.
