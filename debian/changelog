@@ -1,3 +1,11 @@
+xeus-cling (0.13.0-0ppa4) unstable; urgency=medium
+
+  * Add 0005-Don-t-install-into-usr-etc.patch
+  * Set build type to Release
+  * Properly split up files
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Sun, 14 Aug 2022 22:12:47 -0400
+
 xeus-cling (0.13.0-0ppa3) unstable; urgency=medium
 
   * control: compat level 13
