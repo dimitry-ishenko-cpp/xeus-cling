@@ -12,7 +12,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DDISABLE_ARCH_NATIVE=ON -DGTEST_SRC_DIR=/usr/src/googletest
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DDISABLE_ARCH_NATIVE=ON -DGTEST_SRC_DIR=/usr/src/googletest
 
 override_dh_auto_test:
 	dh_auto_test -- xtest
@@ -20,7 +20,7 @@ override_dh_auto_test:
 else
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DDISABLE_ARCH_NATIVE=ON
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DDISABLE_ARCH_NATIVE=ON
 
 endif
 
