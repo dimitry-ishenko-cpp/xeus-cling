@@ -1,3 +1,10 @@
+xeus-cling (0.13.0-0ppa5) unstable; urgency=medium
+
+  * Depend on nlohmann-json3-dev >= 3.11.2
+  * Add 0006-Link-dynamically-with-libcling.patch
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Tue, 16 Aug 2022 12:58:39 -0400
+
 xeus-cling (0.13.0-0ppa4) unstable; urgency=medium
 
   * Add 0005-Don-t-install-into-usr-etc.patch
