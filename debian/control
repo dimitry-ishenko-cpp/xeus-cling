@@ -13,7 +13,7 @@ Build-Depends: debhelper-compat (= 13),
  libcxxopts-dev,
  libpugixml-dev,
  llvm-9-dev (>> 2:9~),
- nlohmann-json3-dev,
+ nlohmann-json3-dev (>= 3.11.2),
  pkgconf,
  python3-breathe,
  python3-sphinx,
@@ -29,7 +29,7 @@ Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends},
  cling-common (>= 0.6),
- nlohmann-json3-dev
+ nlohmann-json3-dev (>= 3.11.2)
 Recommends: xwidgets-dev
 Description: Jupyter kernel for C++
  xeus-cling is a Jupyter kernel for C++ based on the cling C++ interpreter and
@@ -41,7 +41,7 @@ Package: xcpp
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
  cling-common (>= 0.6),
- nlohmann-json3-dev
+ nlohmann-json3-dev (>= 3.11.2)
 Recommends: xwidgets-dev
 Description: Jupyter kernel for C++
  xeus-cling is a Jupyter kernel for C++ based on the cling C++ interpreter and
@@ -54,7 +54,7 @@ Architecture: any
 Depends: ${misc:Depends},
  cling-common (>= 0.6),
  libxeus-cling0 (= ${binary:Version}),
- nlohmann-json3-dev,
+ nlohmann-json3-dev (>= 3.11.2),
  xeus-dev (>= 2.0.0)
 Recommends: xwidgets-dev
 Description: Jupyter kernel for C++

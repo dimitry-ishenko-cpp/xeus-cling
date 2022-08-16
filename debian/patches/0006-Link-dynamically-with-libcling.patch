@@ -1,0 +1,15 @@
+From: Dimitry Ishenko <dimitry.ishenko@gmail.com>
+Date: Sun, 16 Aug 2022 12:55:42 -0400
+Subject: Link dynamically with libcling
+
+--- xeus-cling-0.13.0.orig/CMakeLists.txt
++++ xeus-cling-0.13.0/CMakeLists.txt
+@@ -207,7 +207,7 @@ target_include_directories(xeus-cling
+                            PUBLIC
+                            $<BUILD_INTERFACE:${XEUS_CLING_INCLUDE_DIR}>
+                            $<INSTALL_INTERFACE:include>)
+-target_link_libraries(xeus-cling PUBLIC clingInterpreter clingMetaProcessor clingUtils xeus pugixml cxxopts::cxxopts)
++target_link_libraries(xeus-cling PUBLIC cling xeus pugixml cxxopts::cxxopts)
+ 
+ set_target_properties(xeus-cling PROPERTIES
+                       PUBLIC_HEADER "${XEUS_CLING_HEADERS}"
