@@ -1,4 +1,4 @@
-xeus-cling (0.13.0-0ppa6) unstable; urgency=medium
+xeus-cling (0.13.0-0ppa6~ubuntu22.04) jammy; urgency=medium
 
   * Add 0007-Link-against-LLVM.patch
   * control: switch to debhelper (= 12)
