@@ -1,0 +1,33 @@
+From: Dimitry Ishenko <dimitry.ishenko@gmail.com>
+Date: Sun, 09 May 2023 16:28:00 -0400
+Subject: Link againg LLVM
+
+--- xeus-cling-0.13.0.orig/CMakeLists.txt
++++ xeus-cling-0.13.0/CMakeLists.txt
+@@ -60,7 +60,8 @@ if(LLVM_CONFIG)
+         "--libdir"
+         "--includedir"
+         "--prefix"
+-        "--src-root")
++        "--src-root"
++        "--libs")
+     execute_process(COMMAND ${CONFIG_COMMAND}
+                     RESULT_VARIABLE HAD_ERROR
+                     OUTPUT_VARIABLE CONFIG_OUTPUT)
+@@ -83,6 +84,7 @@ list(GET CONFIG_OUTPUT 2 LIBRARY_DIR)
+ list(GET CONFIG_OUTPUT 3 INCLUDE_DIR)
+ list(GET CONFIG_OUTPUT 4 LLVM_OBJ_ROOT)
+ list(GET CONFIG_OUTPUT 5 MAIN_SRC_DIR)
++list(GET CONFIG_OUTPUT 6 LLVM_LIBS)
+ 
+ if(NOT MSVC_IDE)
+     set(LLVM_ENABLE_ASSERTIONS ${ENABLE_ASSERTIONS} CACHE BOOL "Enable assertions")
+@@ -199,7 +201,7 @@ add_library(xeus-cling SHARED ${XEUS_CLI
+ # xcpp is the target for the kernel executable
+ add_executable(xcpp ${XCPP_SRC})
+ set_target_properties(xcpp PROPERTIES ENABLE_EXPORTS 1)
+-target_link_libraries(xcpp PRIVATE xeus-cling)
++target_link_libraries(xcpp PRIVATE xeus-cling ${LLVM_LIBS})
+ 
+ set(LLVM_NO_DEAD_STRIP 1)
+ 

@@ -4,3 +4,4 @@
 0004-Don-t-set-RPATH.patch
 0005-Don-t-install-into-usr-etc.patch
 0006-Link-dynamically-with-libcling.patch
+0007-Link-against-LLVM.patch
