@@ -2,10 +2,11 @@ Source: xeus-cling
 Section: devel
 Priority: optional
 Maintainer: Dimitry Ishenko <dimitry.ishenko@gmail.com>
-Build-Depends: debhelper-compat (= 13),
+Build-Depends: debhelper-compat (= 12),
  clang-format-9 (>> 2:9~),
  clang-tools-9 (>> 2:9~),
  cmake,
+ dh-exec,
  doxygen,
  googletest <!nocheck>,
  libclang-9-dev (>> 2:9~),

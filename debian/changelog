@@ -1,4 +1,11 @@
-xeus-cling (0.13.0-0ppa5~ubuntu22.04) jammy; urgency=medium
+xeus-cling (0.13.0-0ppa6) unstable; urgency=medium
+
+  * Add 0007-Link-against-LLVM.patch
+  * control: switch to debhelper (= 12)
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Tue, 09 May 2023 17:04:38 -0400
+
+xeus-cling (0.13.0-0ppa5) unstable; urgency=medium
 
   * Depend on nlohmann-json3-dev >= 3.11.2
   * Add 0006-Link-dynamically-with-libcling.patch

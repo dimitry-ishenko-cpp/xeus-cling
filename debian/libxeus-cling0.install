@@ -1,3 +1,4 @@
+#!/usr/bin/dh-exec
 usr/etc/xeus-cling/ etc/
 usr/lib/${DEB_HOST_MULTIARCH}/libxeus-cling.so.*
 usr/share/xeus-cling/
