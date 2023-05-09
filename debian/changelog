@@ -1,4 +1,4 @@
-xeus-cling (0.13.0-0ppa5) unstable; urgency=medium
+xeus-cling (0.13.0-0ppa5~ubuntu20.04) focal; urgency=medium
 
   * Depend on nlohmann-json3-dev >= 3.11.2
   * Add 0006-Link-dynamically-with-libcling.patch
